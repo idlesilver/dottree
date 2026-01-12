@@ -11,12 +11,12 @@ type NodeLine = {
 let isApplyingEdit = false;
 
 function getConfigStyle(): Style {
-  const cfg = vscode.workspace.getConfiguration("dot_tree");
+  const cfg = vscode.workspace.getConfiguration("dottree");
   return (cfg.get<string>("style", "unicode") as Style) ?? "unicode";
 }
 
 function indentSubtreeOnSingleCursor(): boolean {
-  const cfg = vscode.workspace.getConfiguration("dot_tree");
+  const cfg = vscode.workspace.getConfiguration("dottree");
   return cfg.get<boolean>("indentSubtreeOnSingleCursor", true) ?? true;
 }
 
@@ -571,11 +571,11 @@ function getTreeSnippetCompletion(
   const indent = line.text.slice(0, line.firstNonWhitespaceCharacterIndex);
   const snippet = new vscode.SnippetString(`${indent}./\n${indent}└─ README.md`);
 
-  const item = new vscode.CompletionItem("dot_tree template", vscode.CompletionItemKind.Snippet);
-  item.detail = "dot_tree";
+  const item = new vscode.CompletionItem("dottree template", vscode.CompletionItemKind.Snippet);
+  item.detail = "dottree";
   item.insertText = snippet;
   item.filterText = "|";
-  item.sortText = "\u0000dot_tree";
+  item.sortText = "\u0000dottree";
   item.range = line.range;
   return [item];
 }
@@ -658,7 +658,7 @@ export function activate(context: vscode.ExtensionContext) {
 
     const line = editor.selection.active.line;
     const active = line >= 0 && line < doc.lineCount && isTreeLine(doc.lineAt(line).text);
-    vscode.commands.executeCommand("setContext", "dot_tree.activeTreeLine", active);
+    vscode.commands.executeCommand("setContext", "dottree.activeTreeLine", active);
     docLineCounts.set(doc.uri.toString(), doc.lineCount);
   };
 
@@ -726,19 +726,19 @@ export function activate(context: vscode.ExtensionContext) {
       },
       "|"
     ),
-    vscode.commands.registerCommand("dot_tree.indent", async () => {
+    vscode.commands.registerCommand("dottree.indent", async () => {
       const editor = vscode.window.activeTextEditor;
       if (!editor) return;
       await indentOrOutdent(editor, +1);
       updateContext(editor);
     }),
-    vscode.commands.registerCommand("dot_tree.outdent", async () => {
+    vscode.commands.registerCommand("dottree.outdent", async () => {
       const editor = vscode.window.activeTextEditor;
       if (!editor) return;
       await indentOrOutdent(editor, -1);
       updateContext(editor);
     }),
-    vscode.commands.registerCommand("dot_tree.newline", async () => {
+    vscode.commands.registerCommand("dottree.newline", async () => {
       const editor = vscode.window.activeTextEditor;
       if (!editor) return;
       await insertSiblingLine(editor);

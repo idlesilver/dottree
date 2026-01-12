@@ -1,33 +1,33 @@
 {
-  "name": "dot_tree",
-  "displayName": "dot_tree",
+  "name": "dottree",
+  "displayName": "dottree",
   "description": "Maintain directory-tree text with automatic prefixes and Enter/Tab helpers.",
   "version": "0.0.1",
   "publisher": "idlesilver",
   "repository": {
     "type": "git",
-    "url": "https://github.com/idlesilver/dot_tree.git"
+    "url": "https://github.com/idlesilver/dottree.git"
   },
-  "homepage": "https://github.com/idlesilver/dot_tree",
+  "homepage": "https://github.com/idlesilver/dottree",
   "bugs": {
-    "url": "https://github.com/idlesilver/dot_tree/issues"
+    "url": "https://github.com/idlesilver/dottree/issues"
   },
   "engines": {
     "vscode": "^1.85.0"
   },
   "categories": ["Other"],
   "activationEvents": [
-    "onCommand:dot_tree.indent",
-    "onCommand:dot_tree.outdent",
-    "onCommand:dot_tree.newline",
+    "onCommand:dottree.indent",
+    "onCommand:dottree.outdent",
+    "onCommand:dottree.newline",
     "onStartupFinished"
   ],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
-      { "command": "dot_tree.indent", "title": "Dot Tree: Indent (maintain prefixes)" },
-      { "command": "dot_tree.outdent", "title": "Dot Tree: Outdent (maintain prefixes)" },
-      { "command": "dot_tree.newline", "title": "Dot Tree: New Line (same level)" }
+      { "command": "dottree.indent", "title": "Dot Tree: Indent (maintain prefixes)" },
+      { "command": "dottree.outdent", "title": "Dot Tree: Outdent (maintain prefixes)" },
+      { "command": "dottree.newline", "title": "Dot Tree: New Line (same level)" }
     ],
     "languages": [
       {
@@ -45,31 +45,31 @@
     ],
     "keybindings": [
       {
-        "command": "dot_tree.indent",
+        "command": "dottree.indent",
         "key": "tab",
-        "when": "editorTextFocus && dot_tree.activeTreeLine && !suggestWidgetVisible && !inlineSuggestionVisible"
+        "when": "editorTextFocus && dottree.activeTreeLine && !suggestWidgetVisible && !inlineSuggestionVisible"
       },
       {
-        "command": "dot_tree.outdent",
+        "command": "dottree.outdent",
         "key": "shift+tab",
-        "when": "editorTextFocus && dot_tree.activeTreeLine"
+        "when": "editorTextFocus && dottree.activeTreeLine"
       },
       {
-        "command": "dot_tree.newline",
+        "command": "dottree.newline",
         "key": "enter",
-        "when": "editorTextFocus && dot_tree.activeTreeLine"
+        "when": "editorTextFocus && dottree.activeTreeLine"
       }
     ],
     "configuration": {
-      "title": "dot_tree",
+      "title": "dottree",
       "properties": {
-        "dot_tree.style": {
+        "dottree.style": {
           "type": "string",
           "enum": ["unicode", "ascii"],
           "default": "unicode",
           "description": "Tree prefix style to emit after normalization."
         },
-        "dot_tree.indentSubtreeOnSingleCursor": {
+        "dottree.indentSubtreeOnSingleCursor": {
           "type": "boolean",
           "default": true,
           "description": "When there's no selection, indent/outdent the current line plus its subtree."

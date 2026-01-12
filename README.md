@@ -1,4 +1,4 @@
-# dot_tree
+# dottree
 
 Maintain directory-tree text with automatic prefixes, colors, and folding.
 
@@ -60,8 +60,8 @@ Use fenced code blocks with language `tree`:
 
 ## Configuration
 
-- `dot_tree.style`: `unicode` or `ascii` (default `unicode`)
-- `dot_tree.indentSubtreeOnSingleCursor`: indent/outdent subtree on single cursor (default `true`)
+- `dottree.style`: `unicode` or `ascii` (default `unicode`)
+- `dottree.indentSubtreeOnSingleCursor`: indent/outdent subtree on single cursor (default `true`)
 
 ## License
 
