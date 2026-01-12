@@ -4,6 +4,14 @@
   "description": "Maintain directory-tree text with automatic prefixes and Enter/Tab helpers.",
   "version": "0.0.1",
   "publisher": "idlesilver",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/idlesilver/dot_tree.git"
+  },
+  "homepage": "https://github.com/idlesilver/dot_tree",
+  "bugs": {
+    "url": "https://github.com/idlesilver/dot_tree/issues"
+  },
   "engines": {
     "vscode": "^1.85.0"
   },
